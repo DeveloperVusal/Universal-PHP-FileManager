@@ -1,0 +1,540 @@
+@font-face{
+	font-family: 'RobotoRegular';
+	font-display: fallback;
+	src: local('Roboto'), url('../fonts/Roboto-Regular.woff') format('woff');
+}
+@font-face{
+	font-family: 'RobotoMedium';
+	font-display: fallback;
+	src: local('Roboto'), url('../fonts/Roboto-Medium.woff') format('woff');
+}
+.FM-Block-Parent{
+	display: block;
+	margin: 0px;
+	font-family: 'RobotoRegular';
+}
+.FM-Block-Parent .TopBar{
+	display: block;
+	padding: 10px;
+}
+.FM-Block-Parent .fullPath{
+	display: block;
+	padding: 5px 10px;
+	color: #c5c5c5;
+}
+.FM-Block-Parent .fullPath span{
+	color: #929292;
+}
+.FM-Block-Parent .line{
+	border-bottom: 1px solid #e56d6d;
+}
+.FM-Block-Parent .TopBar ul{
+	list-style: none;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+.FM-Block-Parent .TopBar ul li{
+	display: inline-block;
+}
+.FM-Block-Parent .TopBar ul li .Button-Back{
+	display: block;
+	background: url('../images/others/back-folder.png') 100% 100%;
+	background-size: cover;
+	width: 24px;
+	height: 24px;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.FM-Block-Parent .TopBar ul li .Button-Upload{
+	display: block;
+	background: url('../images/others/upload.png') 100% 100%;
+	background-size: cover;
+	width: 24px;
+	height: 24px;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	border: none;
+	outline: none;
+}
+.FM-Block-Parent .TopBar ul li .Button-FileNew{
+	display: block;
+	background: url('../images/files/file-new.png') 100% 100%;
+	background-size: cover;
+	width: 24px;
+	height: 24px;
+}
+.FM-Block-Parent .TopBar ul li .Button-FolderNew{
+	display: block;
+	background: url('../images/folders/folder-new.png') 100% 100%;
+	background-size: cover;
+	width: 24px;
+	height: 24px;
+}
+.FM-Block-Parent .TopBar ul li .Button-Question{
+	display: block;
+	background: url('../images/others/question.png') 100% 100%;
+	background-size: cover;
+	width: 24px;
+	height: 24px;
+}
+.FM-Block-Parent .TopBar ul li .Button-Refresh {
+	display: block;
+	background: url('../images/others/refresh.png') 100% 100%;
+	background-size: cover;
+	width: 24px;
+	height: 24px;
+}
+.FM-Block-Parent .TopBar ul li .Button-Back:hover,
+.FM-Block-Parent .TopBar ul li .Button-Upload:hover,
+.FM-Block-Parent .TopBar ul li .Button-FileNew:hover,
+.FM-Block-Parent .TopBar ul li .Button-FolderNew:hover,
+.FM-Block-Parent .TopBar ul li .Button-Question:hover,
+.FM-Block-Parent .TopBar ul li .Button-Refresh:hover {
+	cursor: pointer;
+	opacity: 0.7;
+}
+.FM-Block-Parent .hint { position: relative; display: inline-block; }
+
+.FM-Block-Parent .hint:before, .FM-Block-Parent .hint:after {
+			position: absolute;
+			opacity: 0;
+			z-index: 1000000;
+			-webkit-transition: 0.3s ease;
+			-moz-transition: 0.3s ease;
+  pointer-events: none;
+}
+
+/* Begin Hints */
+.FM-Block-Parent .hint:hover:before, .FM-Block-Parent .hint:hover:after {
+	opacity: 1;
+}
+.FM-Block-Parent .hint:before {
+	content: '';
+	position: absolute;
+	background: transparent;
+	border: 6px solid transparent;
+	position: absolute;
+}
+.FM-Block-Parent .hint:after {
+	content: attr(data-hint);
+	background: rgba(0, 0, 0, 0.8);
+			color: white;
+			padding: 8px 10px;
+			font-size: 12px;
+	white-space: nowrap;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* top */
+.FM-Block-Parent .hint-top:before {
+	bottom: 100%;
+	left: 50%;
+	margin: 0 0 -18px 0;
+	border-top-color: rgba(0, 0, 0, 0.8);
+}
+.FM-Block-Parent .hint-top:after {
+	bottom: 100%;
+	left: 50%;
+	margin: 0 0 -6px -10px;
+}
+.FM-Block-Parent .hint-top:hover:before {
+	margin-bottom: -10px;
+}
+.FM-Block-Parent .hint-top:hover:after {
+	margin-bottom: 2px;
+}
+
+/* default: bottom */
+.FM-Block-Parent .hint-bottom:before {
+	top: 100%;
+	left: 50%;
+	margin: -14px 0 0 0;
+	border-bottom-color: rgba(0, 0, 0, 0.8);
+}
+.FM-Block-Parent .hint-bottom:after {
+	top: 100%;
+	left: 50%;
+	margin: -2px 0 0 -10px;
+}
+.FM-Block-Parent .hint-bottom:hover:before {
+	margin-top: -6px;
+}
+.FM-Block-Parent .hint-bottom:hover:after {
+	margin-top: 6px;
+}
+
+/* right */
+.FM-Block-Parent .hint-right:before {
+	left: 100%;
+	bottom: 50%;
+	margin: 0 0 -4px -8px;
+	border-right-color: rgba(0,0,0,0.8);
+}
+.FM-Block-Parent .hint-right:after {
+	left: 100%;
+	bottom: 50%;
+	margin: 0 0 -13px 4px;
+}
+.FM-Block-Parent .hint-right:hover:before {
+	margin: 0 0 -4px -0;
+}
+.FM-Block-Parent .hint-right:hover:after {
+	margin: 0 0 -13px 12px;
+}
+
+/* left */
+.FM-Block-Parent .hint-left:before {
+	right: 100%;
+	bottom: 50%;
+	margin: 0 -8px -4px 0;
+	border-left-color: rgba(0,0,0,0.8);
+}
+.FM-Block-Parent .hint-left:after {
+	right: 100%;
+	bottom: 50%;
+	margin: 0 4px -13px 0;
+}
+.FM-Block-Parent .hint-left:hover:before {
+	margin: 0 0 -4px 0;
+}
+.FM-Block-Parent .hint-left:hover:after {
+	margin: 0 12px -13px 0;
+}
+/* End Hints */
+
+.FM-Block-Parent .wrap{
+	display: block;
+	width: 100%;
+	height: 100%;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	border-bottom: 2px solid #ddd;
+}
+.FM-Block-Parent .wrap .overlayLoad{
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background: #fff;
+	opacity: 1;
+}
+.FM-Block-Parent .wrap .preLoaderParent{
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	text-align: center;
+	opacity: 0.9;
+}
+.FM-Block-Parent .wrap .preLoaderParent .preloader{
+	display: inline-block;
+	color: white;
+	margin-top: 15%; 
+	animation-duration: 2s;
+	animation-name: animPreloader;
+	animation-delay: 1s;
+	animation-iteration-count: infinite;
+}
+.FM-Block-Parent .wrap .preLoaderParent .preloader .dotRed{
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	display: inline-block;
+	background: red;
+	width: 32px;
+	height: 32px;
+}
+.FM-Block-Parent .wrap .preLoaderParent .preloader .dotBlue{
+	display: inline-block;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	background: blue;
+	width: 32px;
+	height: 32px;
+}
+@keyframes animPreloader{
+	0% {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	25% {
+		-webkit-transform: rotate(90deg);
+		-moz-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		-o-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+
+	50% {
+		-webkit-transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+	
+	75% {
+		-webkit-transform: rotate(270deg);
+		-moz-transform: rotate(270deg);
+		-ms-transform: rotate(270deg);
+		-o-transform: rotate(270deg);
+		transform: rotate(270deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+.FM-Block-Parent .wrap .fm-content{
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	overflow-y: auto;
+}
+.FM-Block-Parent .wrap .DnD-Area{
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.7;
+}
+.FM-Block-Parent .wrap .DnD-Area .parentBox{
+	padding: 20px;
+	width: 96.5%;
+	height: 90%;
+	display: block;
+	text-align: center;
+}
+.FM-Block-Parent .wrap .DnD-Area .parentBox .box{
+	border: dashed 2px #fff;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.FM-Block-Parent .wrap .DnD-Area .parentBox .box .text{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 16pt;
+	color: #fff;
+}
+.FM-Block-Parent .wrap .DnD-Area .parentBox .box .fix{
+	display: inline-block;
+	vertical-align: middle;
+	width: 1px;
+	height: 100%;
+}
+.FM-Block-Parent .FM-windowUpload{
+	display: block;
+	width: 100%;
+	height: 10%;
+	position: relative;
+	z-index: 5;
+	margin-top: 1%;
+}
+.FM-Block-Parent .FM-windowUpload .uploadBlock{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.FM-Block-Parent .FM-windowUpload .uploadBlock .uploadTitle {
+	display: block;
+	margin-bottom: 5px;
+	position: relative;
+}
+.FM-Block-Parent .FM-windowUpload .uploadBlock .uploadTitle #innerText{
+	font-size: 12pt;
+	color: #474747;
+	font-family: 'RobotoMedium';
+}
+.FM-Block-Parent .FM-windowUpload .uploadBlock .uploadTitle .close{
+	background: url('../images/others/close.png') 100% 100%;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background-size: cover;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.FM-Block-Parent .FM-windowUpload .uploadBlock .uploadTitle .close:hover{
+	cursor: pointer;
+	opacity: 0.8;
+}
+.FM-Block-Parent .FM-windowUpload .uploadBlock .uploadBgLine{
+	position: relative;
+	width: 100%;
+	height: 5px;
+	background: #eee;
+	display: block;
+	z-index: 1
+}
+.FM-Block-Parent .FM-windowUpload .uploadBlock .uploadBgLine .uploadLine{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 0%;
+	height: 5px;
+	background: #b9f9ac;
+	display: block;
+	z-index: 2
+}
+.FM-Block-Parent .wrap .fm-content ul{
+	display: block;
+	list-style: none;
+	text-align: left;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	margin-top: 15px;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item{
+	display: inline-block;
+	margin-right: 15px;
+	width: 13%;
+	text-align: center;
+	position: relative;
+	padding: 15px 0px 15px 0px;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item:hover{
+	background: #fde1e1;
+	cursor: pointer;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .name{
+	display: block;
+	font-size: 11pt;
+	margin-top: 10px;
+	word-break: break-all;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .rename{
+	display: none;
+	margin-top: 10px;
+	text-align: center;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .rename input{
+	border: 1px solid #adadad;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	padding: 5px;
+	display: inline-block;
+	width: 90%;
+	font-size: 10pt;
+	outline: none;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .rename input:focus{
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #84beeb;
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #84beeb;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 4px #84beeb;
+	filter: progid:DXImageTransform.Microsoft.shadow(offX=0, offY=6, color=#84beeb);
+	border: 1px solid #6380c8;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .folder{
+	background: url('../images/folders/folder.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .jpg{
+	background: url('../images/files/file-jpg.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .png{
+	background: url('../images/files/file-png.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .zip{
+	background: url('../images/files/file-zip.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .txt{
+	background: url('../images/files/file-txt.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .pdf{
+	background: url('../images/files/file-pdf.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .svg{
+	background: url('../images/files/file-svg.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .none{
+	background: url('../images/files/file-none.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .php{
+	background: url('../images/files/file-php.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .html{
+	background: url('../images/files/file-html.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .js{
+	background: url('../images/files/file-js.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .css{
+	background: url('../images/files/file-css.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .psd{
+	background: url('../images/files/file-psd.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .doc{
+	background: url('../images/files/file-doc.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .xml{
+	background: url('../images/files/file-xml.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .mp3{
+	background: url('../images/files/file-mp3.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .mp4{
+	background: url('../images/files/file-mp4.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .eps{
+	background: url('../images/files/file-eps.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .avi{
+	background: url('../images/files/file-avi.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .xls{
+	background: url('../images/files/file-xls.png') 100% 100%;
+}
+.FM-Block-Parent .wrap .fm-content ul li.item .icon{
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+	background-size: cover;
+}
+.FM-Block-Parent .wrap .fm-content .emptyDir{
+	display: inline-block;
+	font-size: 12pt;
+	margin-top: 30px;
+	color: #999;
+}
+.FM-Block-Parent .fm-clear{
+	clear: both;
+	height: 1px;
+	width: 100%;
+}
+.FM-Block-Parent .fm-block{
+	display: block !important;
+}
+.FM-Block-Parent .fm-none{
+	display: none;
+}
