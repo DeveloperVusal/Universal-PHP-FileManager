@@ -61,7 +61,11 @@ class FM_View {
 		$dirItems = $this->getArrayDir($FMCurrentPath);
 		$Model = new FM_Model();
 
-		$jsonfile = json_decode(file_get_contents(FM_WEB_PATH.FM_URL.'/files-data.json'), true);
+		if (file_exists(FM_WEB_PATH.FM_URL.'/files-data.json')) {
+			$jsonfile = json_decode(file_get_contents(FM_WEB_PATH.FM_URL.'/files-data.json'), true);
+		} else {
+			$jsonfile = array();
+		}
 
 		if (sizeof($dirItems)) {
 			$i = 0;

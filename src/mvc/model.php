@@ -258,8 +258,12 @@ class FM_Model {
 		$move = move_uploaded_file($file['tmp_name'][0], $newPath);
 
 		if ($move) {
-			$jsonfile = json_decode(file_get_contents(FM_WEB_PATH.FM_URL.'/files-data.json'), true);
-
+			if (file_exists(FM_WEB_PATH.FM_URL.'/files-data.json')) {
+				$jsonfile = json_decode(file_get_contents(FM_WEB_PATH.FM_URL.'/files-data.json'), true);
+			} else {
+				$jsonfile = array();
+			}
+			
 			if (!array_key_exists(FM_UPLOAD_DIR.urldecode($path).$filename, $jsonfile)) {
 				$jsonfile[FM_UPLOAD_DIR.urldecode($path).$filename] = date('d.m.Y H:i:s');
 				file_put_contents(FM_WEB_PATH.FM_URL.'/files-data.json', json_encode($jsonfile));
