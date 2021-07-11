@@ -1152,10 +1152,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
     });
 
     dropZone2.addEventListener('drop', function(event) {
+		$_GET = app.fn_GET();
+
     	event.preventDefault();
     	event.stopPropagation();
     	document.getElementById('FM-DragAndDrop').style.display = 'none';
     	let files = event.dataTransfer.files;
+
     	app.forAjaxUpload($_GET['FMCurrentPath'], files, 0);
     });
 });
